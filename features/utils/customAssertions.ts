@@ -1,8 +1,8 @@
 import { expect as expectChai } from 'chai';
 import BasePage from '../pages/basePage.js';
+import { Constants } from './constants.js';
 
-const ELEMENT_WAIT_TIME = 10000;
-export class ExpectHelper extends BasePage {
+export class CustomAssertions extends BasePage {
     /** Este método realiza el expect de si el texto de un WebElement o texto, contiene otro texto
      * @param element WebdriverIO.Element del elemento donde esta el texto
      * @param expectedText texto que se quiere comparar
@@ -30,7 +30,7 @@ export class ExpectHelper extends BasePage {
     }
 
     public async expectElementDisplayed(element: WebdriverIO.Element, descripcion?: string) {
-        const isDisplay = await element.waitForDisplayed({ timeout: ELEMENT_WAIT_TIME, timeoutMsg: `${descripcion?.toUpperCase()} NO SE ENCONTRÓ EN EL TIEMPO ${ELEMENT_WAIT_TIME} ms` });
+        const isDisplay = await element.waitForDisplayed({ timeout: Constants.ELEMENT_WAIT_TIME, timeoutMsg: `${descripcion?.toUpperCase()} NO SE ENCONTRÓ EN EL TIEMPO ${Constants.ELEMENT_WAIT_TIME} ms` });
         if (isDisplay && descripcion !== undefined) {
             console.log(`${descripcion?.toUpperCase()} ES VISIBLE`);
         }
@@ -42,7 +42,7 @@ export class ExpectHelper extends BasePage {
          * @param descripcion es la descripcion del localizador
          */
     public async expectElementNotDisplayed(element: WebdriverIO.Element, descripcion?: string) {
-        const isDisplay = await element.waitForDisplayed({ timeout: ELEMENT_WAIT_TIME, reverse: true, timeoutMsg: `TRANSCURRIÓ ${ELEMENT_WAIT_TIME} ms CON ${descripcion?.toUpperCase()} VISIBLE` });
+        const isDisplay = await element.waitForDisplayed({ timeout: Constants.ELEMENT_WAIT_TIME, reverse: true, timeoutMsg: `TRANSCURRIÓ ${Constants.ELEMENT_WAIT_TIME} ms CON ${descripcion?.toUpperCase()} VISIBLE` });
         if (isDisplay && descripcion !== undefined) {
             console.log(`${descripcion?.toUpperCase()} NO ES VISIBLE`);
         }
@@ -66,5 +66,4 @@ export class ExpectHelper extends BasePage {
     }
 }
 
-export default new ExpectHelper();
-
+export default new CustomAssertions();
