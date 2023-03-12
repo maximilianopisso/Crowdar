@@ -7,7 +7,7 @@
 El comando para ejecutar los test es: npx wdio run wdio.conf.ts
 
 ### Ejecutar 2 navegadores
-Sobre el archivo de configuracion del framework, sobre la seccion *capabilities* descomentar las lineas que habilitan la ejecucion de pruebas con Firefox:
+Sobre el archivo de configuración del framework, sobre la sección *capabilities* descomentar las lineas que habilitan la ejecución de pruebas con Firefox:
 
 capabilities: [
 
@@ -27,17 +27,17 @@ acceptInsecureCerts: true
 
 },
 
-*//Habilitar para ejecutar en firefox*
+**//Habilitar para ejecutar en firefox**
 
-*// {*
+**// {**
 
-*//maxInstances: 1,*
+**//maxInstances: 1,**
 
-*//browserName: 'firefox',*
+**//browserName: 'firefox',**
 
-*//acceptInsecureCerts: true*
+**//acceptInsecureCerts: true**
 
-*//*
+**//**
 
 },
 
