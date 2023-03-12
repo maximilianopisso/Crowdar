@@ -32,7 +32,8 @@ export const config: Options.Testrunner = {
     //
     specs: [
         './features/**/inicioSesion.feature',
-        './features/**/agregarItemCarrito.feature'
+        './features/**/agregarItemCarrito.feature',
+        './features/**/webServiceML.feature',
     ],
     // Patterns to exclude.
     exclude: [
