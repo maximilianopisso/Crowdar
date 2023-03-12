@@ -28,6 +28,7 @@
 ### Reportes
 Los reportes son generados por Allure Report automáticamente luego de una ejecución en formato json.
 Los reportes son alojados en la carpeta local *allure-results*
+
 **Run Reportes**
 Para visualizar los reportes de Allure Report, se deben ejecutar los siguientes comandos:
 1. npx allure generate allure-results --clean
