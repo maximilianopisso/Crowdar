@@ -27,17 +27,17 @@ acceptInsecureCerts: true
 
 },
 
-//Habilitar para ejecutar en firefox
+*//Habilitar para ejecutar en firefox*
 
-// {
+*// {*
 
-//maxInstances: 1,
+*//maxInstances: 1,*
 
-//browserName: 'firefox',
+*//browserName: 'firefox',*
 
-//acceptInsecureCerts: true
+*//acceptInsecureCerts: true*
 
-//
+*//*
 
 },
 
