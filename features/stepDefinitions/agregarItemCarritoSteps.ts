@@ -22,7 +22,7 @@ When(/^presiona boton para continuar compra$/, async () => {
     await ProductsPage.clickBtnContinueShopping();
 });
 
-Then(/^se visualiza que el número de productos en el carrito de compras se incrementa a (.*)$/, async (incremento: string) => {
+Then(/^se visualiza que el número de productos en el carrito de compras es (.*)$/, async (incremento: string) => {
     await CustomAssertions.expectElementDisplayed(await ProductsPage.cantItemsCarrito);
     await CustomAssertions.expectEqualText(await ProductsPage.cantItemsCarrito, incremento);
 });

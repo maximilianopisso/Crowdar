@@ -32,7 +32,7 @@ export const config: Options.Testrunner = {
     //
     specs: [
         './features/**/inicioSesion.feature',
-        // './features/**/agregarItemCarrito.feature'
+        './features/**/agregarItemCarrito.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -269,9 +269,8 @@ export const config: Options.Testrunner = {
      * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
      * @param {Object}                 context  Cucumber World object
      */
-    beforeScenario: async function (world, context) {
-        await browser.reloadSession(); // Reiniciar sesión antes de cada escenario
-    },
+    // beforeScenario: async function (world, context) {
+    // },
     /**
      *
      * Runs before a Cucumber Step.
@@ -307,8 +306,9 @@ export const config: Options.Testrunner = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {Object}                 context          Cucumber World object
      */
-    // afterScenario: async function (world, result, context) {
-    // },
+    afterScenario: async function (world, result, context) {
+        await browser.reloadSession(); // Reiniciar sesión antes de cada escenario
+    },
     /**
      *
      * Runs after a Cucumber Feature.
