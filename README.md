@@ -1,15 +1,15 @@
 # Challenge Automation
-### Instalacion
+### Instalación
 1. Descargar proyecto del repositorio
 2. Instalar Node -> ejecutando el comando npm install
 
 ### Run Test
-- npx wdio run wdio.conf.ts
+El comando para ejecutar los test es: npx wdio run wdio.conf.ts
 
 ### Ejecutar 2 navegadores
-- Sobre el archivo de configuracion del framework, sobre la seccion *capabilities* descomentar las lineas que habilitan la ejecucion de pruebas con Firefox:
+Sobre el archivo de configuracion del framework, sobre la seccion *capabilities* descomentar las lineas que habilitan la ejecucion de pruebas con Firefox:
 
- capabilities: [
+capabilities: [
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
