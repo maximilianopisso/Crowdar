@@ -1,16 +1,16 @@
-    Feature: Iniciar sesión.
-        Como usuario
-        Quiero poder iniciar sesión en mi cuenta
-        Para acceder a mi perfil y a las funciones protegidas de la aplicación
+Feature: Iniciar sesión.
+    Como usuario
+    Quiero poder iniciar sesión en mi cuenta
+    Para acceder a mi perfil y a las funciones protegidas de la aplicación
 
-        Scenario: Iniciar sesión con credenciales válidas. 
+    Scenario: Iniciar sesión con credenciales válidas. 
         Given que el usuario se encuentra en la pantalla de inicio de sesión
         When ingresa nombre de usuario y contraseña válida
         And presiona en el botón "Login"
         Then el usuario se loguea
         And lo redirige a la pantalla "Products"
 
-        Scenario: Iniciar sesión con credenciales incorrectas.
+    Scenario: Iniciar sesión con credenciales incorrectas.
         Given que el usuario se encuentra en la pantalla de inicio de sesión
         When se completa con un nombre de usuario y una contraseña inválidos
         And presiona el botón "Login"
@@ -18,8 +18,7 @@
         ***
         Epic sadface: Username and password do not match any user in this service
         ***
-
-        Escenario: Iniciar sesión con credenciales para un usuario bloqueado (Falla)
+    Scenario: Iniciar sesión con credenciales para un usuario bloqueado (Falla)
         Given que el usuario se encuentra en la pantalla de inicio de sesión
         When se completa con un nombre de usuario y una contraseña de un usuario no bloqueado
         And presiona el botón "Login"
@@ -30,19 +29,19 @@
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-    Feature: Agregado de productos al carrito de compras
-        Como usuario
-        Quiero poder agregar productos al carrito de compras
-        Para poder comprar los productos más tarde
+Feature: Agregado de productos al carrito de compras
+    Como usuario
+    Quiero poder agregar productos al carrito de compras
+    Para poder comprar los productos más tarde
 
-        Scenario: Agregar un producto al carrito de compras
+    Scenario: Agregar un producto al carrito de compras
         Given que el usuario se encuentra en la página de inventario de productos
         When presiona el botón "Add to cart" para agregar un producto al carrito de compras
         Then sobre el icono del carrito de compras se visualiza la confirmación de que el producto ha sido agregado
         And el número de productos en el carrito de compras se incrementa en 1
         And el botón "Add to cart" asociado al producto agregado pasa a nombrarse "Remove"
 
-        Scenario: Agregar más productos al carrito de compras, luego de continuar con el shopping.
+    Scenario: Agregar más productos al carrito de compras, luego de continuar con el shopping.
         Given que el usuario ya tiene productos agregados a su carrito de compras
         When presiona el icono del carrito de compras
         And presiona botón "Continue Shopping"
@@ -51,8 +50,24 @@
         And el número de productos en el carrito de compras se incrementa en 1
         And el botón "Add to cart" asociado al producto agregado pasa a nombrarse "Remove"
 
-        Scenario: Agregar un producto al carrito de compras (Falla)
+    Scenario: Agregar un producto al carrito de compras (Falla)
         Given que el usuario se encuentra en la página de inventario de productos
         When presiona el botón "Add to cart" para agregar un producto al carrito de compras
         Then sobre el icono del carrito de compras se visualiza la confirmación de que el producto ha sido agregado
         And el número de productos en el carrito de compras no se incrementa
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Feature: Interactuar con el servicio web de Mercado Libre
+    Como automatizador
+    Quiero poder interactuar con los web services de mercado libre
+    Para obtener informacion acerca de sus departamentos
+    
+    Scenario Outline: Interactuar con el servicio web de Mercado Libre y verificar que contenga departamentos
+        Given que tengo acceso al servicio web de Mercado Libre
+        When consulto la lista de departamentos
+        Then comprueba si departamento <departamento> se encuentra contenido
+        Examples:
+        | departamento |
+        | Tecnología   |
+        | Hogar        |

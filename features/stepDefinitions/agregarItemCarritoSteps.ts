@@ -1,6 +1,5 @@
 import { Given, When, Then, DataTable } from '@wdio/cucumber-framework';
 import ProductsPage from '../pages/productsPage.js';
-import { Constants } from '../utils/constants.js';
 import CustomAssertions from '../utils/customAssertions.js';
 
 When(/^se agrega un producto al carrito de compras$/, async () => {

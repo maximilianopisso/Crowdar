@@ -4,7 +4,6 @@ import ProductsPage from '../pages/productsPage.js';
 import { Constants } from '../utils/constants.js';
 import CustomAssertions from '../utils/customAssertions.js';
 
-
 const pages = {
     login: LoginPage
 }
