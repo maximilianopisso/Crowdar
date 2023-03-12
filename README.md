@@ -10,21 +10,35 @@ El comando para ejecutar los test es: npx wdio run wdio.conf.ts
 Sobre el archivo de configuracion del framework, sobre la seccion *capabilities* descomentar las lineas que habilitan la ejecucion de pruebas con Firefox:
 
 capabilities: [
+
 // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+
 // grid with only 5 firefox instances available you can make sure that not more than
+
 // 5 instances get started at a time.
+
 {
+
 maxInstances: 1,
+
 browserName: 'chrome',
+
 acceptInsecureCerts: true
+
 },
 
 //Habilitar para ejecutar en firefox
+
 // {
+
 //maxInstances: 1,
+
 //browserName: 'firefox',
+
 //acceptInsecureCerts: true
+
 //
+
 },
 
 ### Reportes
