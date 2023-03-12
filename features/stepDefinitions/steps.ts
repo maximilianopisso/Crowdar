@@ -1,18 +1,19 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
+import { Given, When, Then, DataTable } from '@wdio/cucumber-framework';
 import LoginPage from '../pages/loginPage.js';
-import SecurePage from '../pages/securePage.js';
+import SecurePage from '../pages/productsPage.js';
 
 const pages = {
     login: LoginPage
 }
 
-Given(/^I am on the (\w+) page$/, async (page) => {
+Given(/^el usuario se encuentra en la pantalla de (\w+)$/, async (page: string) => {
     await pages[page].open();
-    await browser.pause(4000);
 });
 
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password);
+When(/^se loguea ingresando usuario y password$/, async (dataTable: DataTable) => {
+    const credenciales = dataTable.raw();
+    await LoginPage.login(credenciales[1][0], credenciales[1][1]);
+    await browser.pause(5000);
 });
 
 Then(/^I should see a flash message saying (.*)$/, async (message) => {

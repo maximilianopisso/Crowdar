@@ -1,13 +1,15 @@
 import BasePage from "./basePage.js";
 
 class LoginPage extends BasePage {
-    get inputUsername() { return $('#username'); }
-    get inputPassword() { return $('#password'); }
-    get btnLogin() { return $('button[type="submit"]'); }
+    get title() { return $("//div[@class='login_logo']"); }
+    get inputUsername() { return $("//input[@id='user-name']"); }
+    get inputPassword() { return $("//input[@id='password']"); }
+    get msgError() { return $("//div[@class='error-message-container error']") }
+    get btnLogin() { return $("//input[@id='login-button']"); }
 
     public async login(username: string, password: string) {
         await this.wdioSendKeys(await this.inputUsername, username);
-        await this.wdioSendKeys(await this.inputPassword, username);
+        await this.wdioSendKeys(await this.inputPassword, password);
         await this.wdioClick(await this.btnLogin);
     }
 

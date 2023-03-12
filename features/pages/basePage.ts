@@ -2,7 +2,7 @@
 * main page object containing all methods, selectors and functionality
 * that is shared across all page objects
 */
-const ELEMENT_WAIT_TIME = 5000;
+const ELEMENT_WAIT_TIME = 10000;
 
 export default class BasePage {
 
@@ -24,5 +24,10 @@ export default class BasePage {
         await element.waitForExist({ timeout: ELEMENT_WAIT_TIME, timeoutMsg: `EL ELEMENTO NO FUE ENCONTRADO DURANTE ${ELEMENT_WAIT_TIME} ms` });
         await element.waitForClickable({ timeout: ELEMENT_WAIT_TIME, timeoutMsg: `EL ELEMENTO NO FUE CLICKEABLE DURANTE ${ELEMENT_WAIT_TIME} ms` });
         await element.click();
+    }
+
+    public async wdioGetTextFromElement(element: WebdriverIO.Element): Promise<string> {
+        await element.waitForExist({ timeout: ELEMENT_WAIT_TIME, timeoutMsg: `EL ELEMENTO NO FUE ENCONTRADO DURANTE ${ELEMENT_WAIT_TIME}ms` });
+        return element.getText();
     }
 }
