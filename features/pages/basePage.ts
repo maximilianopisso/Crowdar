@@ -1,9 +1,9 @@
 import { Constants } from "../utils/constants.js";
 export default class BasePage {
 
-    public async open(url: string) {
+    public async open(url: string): Promise<void> {
         await browser.maximizeWindow();
-        return browser.url(url as string);
+        await browser.url(url as string);
     }
 
     public async wdioSendKeys(element: WebdriverIO.Element, text: string): Promise<void> {
